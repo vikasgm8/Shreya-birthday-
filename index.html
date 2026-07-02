@@ -1,16 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Happy Birthday Shreya ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Shreya ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.container{
+text-align:center;
+color:white;
+padding:20px;
+}
+
+h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+p{
+font-size:20px;
+margin-bottom:25px;
+}
+
+button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4d94;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.heart{
+font-size:70px;
+animation:beat 1s infinite;
+margin-bottom:20px;
+}
+
+@keyframes beat{
+50%{
+transform:scale(1.2);
+}
+}
+</style>
+
 </head>
 
-<body style="background:pink;text-align:center;font-family:Arial;padding-top:100px;">
+<body>
 
-<h1>🎂 Happy Birthday My Shreya ❤️</h1>
+<div class="container">
+<div class="heart">❤️</div>
 
-<p>This is just the beginning...</p>
+<h1>Happy Birthday</h1>
 
-<button>I Love You ❤️</button>
+<h2>My Shreya</h2>
+
+<p>Today is all about the most beautiful girl in my life...</p>
+
+<button onclick="alert('The surprise has just begun ❤️')">
+Open Surprise
+</button>
+
+</div>
 
 </body>
 </html>
