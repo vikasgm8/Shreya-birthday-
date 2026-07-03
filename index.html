@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday My Shreya ❤️</title>
+<title>For My Shreya ❤️</title>
 
 <style>
 *{
@@ -14,54 +14,57 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ff9ecf,#ffd6ea);
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+background:linear-gradient(135deg,#ffd6e7,#ffeef6,#fff6fb);
 overflow:hidden;
 }
 
-.container{
+.card{
+background:white;
+width:90%;
+max-width:380px;
+padding:35px 25px;
+border-radius:25px;
 text-align:center;
-color:white;
-padding:20px;
+box-shadow:0 10px 30px rgba(255,105,180,.2);
+animation:fade 1.2s ease;
 }
 
 h1{
-font-size:42px;
+color:#ff4f8b;
+font-size:34px;
 margin-bottom:15px;
 }
 
 p{
-font-size:20px;
-margin-bottom:25px;
+color:#555;
+font-size:19px;
+line-height:1.6;
+margin-bottom:18px;
 }
 
 button{
+margin-top:10px;
 padding:15px 35px;
 font-size:18px;
 border:none;
 border-radius:30px;
-background:white;
-color:#ff4d94;
+background:#ff5c9a;
+color:white;
 cursor:pointer;
-font-weight:bold;
 }
 
-button:hover{
-transform:scale(1.05);
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(25px);
 }
-
-.heart{
-font-size:70px;
-animation:beat 1s infinite;
-margin-bottom:20px;
-}
-
-@keyframes beat{
-50%{
-transform:scale(1.2);
+to{
+opacity:1;
+transform:translateY(0);
 }
 }
 </style>
@@ -70,28 +73,19 @@ transform:scale(1.2);
 
 <body>
 
-<div class="container">
-<div class="heart">❤️</div>
+<div class="card">
 
-<h1>Happy Birthday</h1>
+<h1>Hi Shreya... ❤️</h1>
 
-<h2>My Shreya</h2>
+<p>Before you continue...</p>
 
-<p>Today is all about the most beautiful girl in my life...</p>
+<p>I made every part of this little surprise only for you. 💖</p>
 
-<button onclick="startSurprise()">
-Open Surprise
-</button>
-<br><br>
-
-<button onclick="window.location.href='letter.html'">
+<button onclick="alert('The next surprise is coming soon ❤️')">
 Continue ❤️
 </button>
+
 </div>
-<script>
-function startSurprise(){
-  window.location.href = "letter.html";
-}
-</script>
+
 </body>
 </html>
