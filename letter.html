@@ -18,47 +18,65 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#ffe0ec,#ffd6e7,#fff5f8);
+background:linear-gradient(135deg,#ffdce8,#ffeef5,#fff8fb);
 overflow:hidden;
 }
 
 .card{
-background:white;
 width:90%;
 max-width:380px;
+background:white;
 padding:35px;
 border-radius:25px;
-box-shadow:0 10px 30px rgba(255,105,180,.25);
+box-shadow:0 15px 40px rgba(255,105,180,.25);
 text-align:center;
-animation:fadeIn 1s ease;
+animation:fadeIn 1.2s ease;
+z-index:2;
 }
 
 h1{
 color:#ff4f87;
-font-size:34px;
-margin-bottom:18px;
+margin-bottom:15px;
 }
 
-p{
-font-size:20px;
+#text{
+font-size:19px;
+line-height:1.8;
 color:#555;
-line-height:1.6;
-margin-bottom:18px;
+min-height:120px;
 }
 
 button{
+margin-top:25px;
+padding:14px 35px;
+border:none;
+border-radius:30px;
 background:#ff4f87;
 color:white;
-border:none;
-padding:15px 35px;
-font-size:19px;
-border-radius:30px;
+font-size:18px;
 cursor:pointer;
-transition:.3s;
+display:none;
 }
 
-button:hover{
-transform:scale(1.05);
+.heart{
+position:absolute;
+color:#ff6fa8;
+font-size:20px;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
 }
 
 @keyframes fadeIn{
@@ -77,16 +95,54 @@ transform:translateY(0);
 <body>
 
 <div class="card">
+
 <h1>Hi Shreya... ❤️</h1>
 
-<p>Before you continue...</p>
+<p id="text"></p>
 
-<p>I made every part of this little surprise only for you. 🥹💖</p>
-
-<button onclick="alert('The next surprise is waiting ❤️')">
-Continue ❤️
+<button id="next" onclick="alert('Next surprise coming soon ❤️')">
+Next Surprise 🎁
 </button>
+
 </div>
+
+<script>
+
+const message="Before you continue... I want you to know that every part of this little surprise was made only for you. ❤️";
+
+let i=0;
+
+function type(){
+if(i<message.length){
+document.getElementById("text").innerHTML+=message.charAt(i);
+i++;
+setTimeout(type,40);
+}else{
+document.getElementById("next").style.display="inline-block";
+}
+}
+
+type();
+
+for(let i=0;i<20;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDelay=Math.random()*8+"s";
+
+h.style.fontSize=(18+Math.random()*18)+"px";
+
+document.body.appendChild(h);
+
+}
+
+</script>
 
 </body>
 </html>
