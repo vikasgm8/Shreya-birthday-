@@ -1,91 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Shreya ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday ❤️</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+    <link rel="stylesheet" href="style.css">
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ffd6e7,#ffeef6,#fff6fb);
-overflow:hidden;
-}
-
-.card{
-background:white;
-width:90%;
-max-width:380px;
-padding:35px 25px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 10px 30px rgba(255,105,180,.2);
-animation:fade 1.2s ease;
-}
-
-h1{
-color:#ff4f8b;
-font-size:34px;
-margin-bottom:15px;
-}
-
-p{
-color:#555;
-font-size:19px;
-line-height:1.6;
-margin-bottom:18px;
-}
-
-button{
-margin-top:10px;
-padding:15px 35px;
-font-size:18px;
-border:none;
-border-radius:30px;
-background:#ff5c9a;
-color:white;
-cursor:pointer;
-}
-
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(25px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-</style>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<div class="card">
+    <div class="loading-screen">
+        <h1>Loading...</h1>
+    </div>
 
-<h1>Hi Shreya... ❤️</h1>
+    <main id="website" class="hidden">
 
-<p>Before you continue...</p>
+        <section class="hero">
 
-<p>I made every part of this little surprise only for you. 💖</p>
+            <div class="floating-hearts"></div>
 
-<button onclick="alert('The next surprise is coming soon ❤️')">
-Continue ❤️
-</button>
+            <div class="hero-content">
 
-</div>
+                <h2>Hello ❤️</h2>
+
+                <h1 class="main-title">
+                    Happy Birthday<br>
+                    My Love
+                </h1>
+
+                <p class="subtitle">
+                    Today is all about you...
+                </p>
+
+                <button id="startBtn">
+                    Open Your Surprise 🎁
+                </button>
+
+            </div>
+
+        </section>
+        <section id="message" class="message-section">
+
+            <div class="container">
+
+                <h2>A Special Message 💌</h2>
+
+                <p>
+                    Every moment with you has become one of my favourite memories.
+                    Your smile brightens my darkest days, your kindness inspires me,
+                    and your presence makes life more beautiful.
+                </p>
+
+                <p>
+                    On your birthday, I just want you to know how special you are.
+                    May this year bring you endless happiness, good health,
+                    beautiful adventures, and all the dreams your heart wishes for.
+                </p>
+
+                <p>
+                    Thank you for being exactly who you are.
+                    Never stop smiling, never stop dreaming,
+                    and never forget how amazing you truly are.
+                    ❤️
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="gallery" class="gallery-section">
+
+            <div class="container">
+
+                <h2>Our Beautiful Memories 📸</h2>
+
+                <div class="gallery-grid">
+
+                    <div class="photo">
+                        <img src="images/photo1.jpg" alt="Memory 1">
+                    </div>
+
+                    <div class="photo">
+                        <img src="images/photo2.jpg" alt="Memory 2">
+                    </div>
+
+                    <div class="photo">
+                        <img src="images/photo3.jpg" alt="Memory 3">
+                    </div>
+
+                    <div class="photo">
+                        <img src="images/photo4.jpg" alt="Memory 4">
+                    </div>
+
+                    <div class="photo">
+                        <img src="images/photo5.jpg" alt="Memory 5">
+                    </div>
+
+                    <div class="photo">
+                        <img src="images/photo6.jpg" alt="Memory 6">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section id="countdown" class="countdown-section">
+
+            <div class="container">
+
+                <h2>Forever & Always ❤️</h2>
+
+                <div class="countdown-box">
+
+                    <div class="time-card">
+                        <h3 id="days">00</h3>
+                        <span>Days</span>
+                    </div>
+
+                    <div class="time-card">
+                        <h3 id="hours">00</h3>
+                        <span>Hours</span>
+                    </div>
+
+                    <div class="time-card">
+                        <h3 id="minutes">00</h3>
+                        <span>Minutes</span>
+                    </div>
+
+                    <div class="time-card">
+                        <h3 id="seconds">00</h3>
+                        <span>Seconds</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="final-section">
+
+            <div class="container">
+
+                <h2>I Have One Last Thing To Say... 💖</h2>
+
+                <p class="final-message">
+                    Happy Birthday once again! 🎂<br><br>
+
+                    I hope this little surprise made you smile.
+                    You deserve all the happiness in the world.
+                    Keep shining, keep smiling, and keep being the amazing person you are.
+                    Wishing you love, laughter, success, and countless beautiful memories.
+                </p>
+
+                <h1 class="ending">
+                    ❤️ Happy Birthday ❤️
+                </h1>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
