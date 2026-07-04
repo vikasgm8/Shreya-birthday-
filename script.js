@@ -1,3 +1,4 @@
+console.log("Script Loaded");
 // PART 1
 
 const loadingScreen = document.querySelector(".loading-screen");
