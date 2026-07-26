@@ -174,3 +174,21 @@ document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
 document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
     showScreen("cakePage");
 });
+let countdownNumber = 3;
+
+const countdownTimer = setInterval(() => {
+
+    const countdown = document.getElementById("countdown");
+
+    if (!countdown) return;
+
+    countdown.innerText = countdownNumber;
+
+    countdownNumber--;
+
+    if (countdownNumber < 0) {
+        clearInterval(countdownTimer);
+        countdown.innerText = "💨";
+    }
+
+}, 1000);
