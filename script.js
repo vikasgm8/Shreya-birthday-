@@ -168,3 +168,6 @@ document.getElementById("backHomeBtn").addEventListener("click", () => {
     loadMemory();
     showScreen("letterIntro");
 });
+document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
+    showScreen("cakePage");
+});
