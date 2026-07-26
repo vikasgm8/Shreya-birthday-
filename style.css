@@ -636,3 +636,12 @@ transform:translateY(0);
     background: #ffd1dc;
     color: #6d435a;
 }
+.new-cake-page {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    background: #fffafc !important;
+}
