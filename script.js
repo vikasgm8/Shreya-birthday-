@@ -171,3 +171,6 @@ document.getElementById("backHomeBtn").addEventListener("click", () => {
 document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
     showScreen("cakePage");
 });
+document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
+    showScreen("cakePage");
+});
