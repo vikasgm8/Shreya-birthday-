@@ -168,19 +168,19 @@ document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
 
     showScreen("cakePage");
 
-    let countdownNumber = 3;
+    let number = 3;
     const countdown = document.getElementById("countdown");
 
-    countdown.innerText = countdownNumber;
+    countdown.innerText = number;
 
-    const countdownTimer = setInterval(() => {
+    const timer = setInterval(() => {
 
-        countdownNumber--;
+        number--;
 
-        if (countdownNumber > 0) {
-            countdown.innerText = countdownNumber;
+        if (number > 0) {
+            countdown.innerText = number;
         } else {
-            clearInterval(countdownTimer);
+            clearInterval(timer);
             countdown.innerText = "💨";
         }
 
