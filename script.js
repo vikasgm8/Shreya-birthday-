@@ -163,11 +163,6 @@ document.getElementById("promiseBtn").addEventListener("click", () => {
     showScreen("promise");
 });
 
-document.getElementById("backHomeBtn").addEventListener("click", () => {
-    memoryIndex = 0;
-    loadMemory();
-    showScreen("letterIntro");
-});
 document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
     showScreen("cakePage");
 });
