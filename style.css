@@ -550,7 +550,7 @@ transform:translateY(0);
     align-items: center;
 }
 
-#cakePage .new-cake {
+#cakePage .cake {
     position: relative;
     width: 230px;
     height: 180px;
