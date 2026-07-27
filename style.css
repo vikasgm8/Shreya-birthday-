@@ -525,23 +525,29 @@ transform:translateY(0);
 /* NEW CAKE PAGE */
 
 #cakePage {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    padding: 25px 15px;
     text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
-    overflow: hidden;
 }
 
 #cakePage .cakeTitle {
-    font-size: 2.2rem;
-    margin-top: 20px;
+    font-size: 2rem;
+    margin: 10px 0 15px;
     color: #c06c84;
 }
 
 #cakePage #blowText {
-    font-size: 1.3rem;
-    margin: 20px 0;
+    font-size: 1.2rem;
+    margin: 15px 0;
 }
 
-.cake-area {
+/* CAKE AREA */
+#cakePage .cake-area {
     position: relative;
     width: 100%;
     height: 330px;
@@ -550,6 +556,7 @@ transform:translateY(0);
     align-items: center;
 }
 
+/* IMPORTANT: your HTML uses .cake, not .new-cake */
 #cakePage .cake {
     position: relative;
     width: 230px;
@@ -557,16 +564,18 @@ transform:translateY(0);
     margin-top: 80px;
 }
 
-.cake-bottom {
+/* CAKE */
+#cakePage .cake-bottom {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 230px;
     height: 80px;
     background: #f4a6b8;
     border-radius: 15px 15px 25px 25px;
 }
 
-.cake-middle {
+#cakePage .cake-middle {
     position: absolute;
     bottom: 65px;
     left: 15px;
@@ -576,7 +585,7 @@ transform:translateY(0);
     border-radius: 15px;
 }
 
-.cake-top {
+#cakePage .cake-top {
     position: absolute;
     bottom: 115px;
     left: 30px;
@@ -586,6 +595,7 @@ transform:translateY(0);
     border-radius: 50%;
 }
 
+/* CANDLES */
 #cakePage .candle {
     position: absolute;
     z-index: 5;
@@ -593,39 +603,44 @@ transform:translateY(0);
     bottom: 150px;
 }
 
-.candle1 {
+#cakePage .candle1 {
     left: 45px;
 }
 
-.candle2 {
+#cakePage .candle2 {
     left: 100px;
 }
 
-.candle3 {
+#cakePage .candle3 {
     right: 45px;
 }
 
+/* COUNTDOWN */
 #cakePage #countdown {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     font-size: 3rem;
     font-weight: bold;
     color: #c06c84;
 }
 
+/* BALLOONS */
 #cakePage #balloons {
     font-size: 2.5rem;
     margin-top: 10px;
 }
 
+/* HAPPY BIRTHDAY */
 #cakePage #birthdayText {
     display: none;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #c06c84;
     margin: 20px 10px;
 }
 
+/* CONTINUE */
 #cakePage #cakeContinueBtn {
     display: none;
     margin: 20px auto;
@@ -636,12 +651,16 @@ transform:translateY(0);
     background: #ffd1dc;
     color: #6d435a;
 }
+
+/* FULL PAGE */
 .new-cake-page {
     position: fixed !important;
     inset: 0 !important;
     z-index: 9999 !important;
-    width: 100% !important;
-    height: 100vh !important;
+    width: 100vw !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
     overflow-y: auto !important;
     background: #fffafc !important;
 }
