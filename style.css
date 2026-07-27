@@ -664,3 +664,52 @@ transform:translateY(0);
     overflow-y: auto !important;
     background: #fffafc !important;
 }
+/* FINAL MOBILE FIX FOR CAKE PAGE */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+#cakePage {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 20px 10px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    transform: none !important;
+}
+
+#cakePage .cake-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+#cakePage .cake {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#cakePage .cakeTitle,
+#cakePage #blowText,
+#cakePage #countdown,
+#cakePage #balloons,
+#cakePage #birthdayText,
+#cakePage #cakeContinueBtn {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
