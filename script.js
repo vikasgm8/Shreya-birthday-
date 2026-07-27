@@ -166,9 +166,7 @@ document.getElementById("promiseBtn").addEventListener("click", () => {
 document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
     showScreen("cakePage");
 });
-document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
-    showScreen("cakePage");
-});
+
 let countdownNumber = 3;
 
 const countdownTimer = setInterval(() => {
