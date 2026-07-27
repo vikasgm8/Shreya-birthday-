@@ -163,25 +163,27 @@ document.getElementById("promiseBtn").addEventListener("click", () => {
     showScreen("promise");
 });
 
+
 document.getElementById("startNewSurpriseBtn").addEventListener("click", () => {
+
     showScreen("cakePage");
-});
 
-let countdownNumber = 3;
-
-const countdownTimer = setInterval(() => {
-
+    let countdownNumber = 3;
     const countdown = document.getElementById("countdown");
-
-    if (!countdown) return;
 
     countdown.innerText = countdownNumber;
 
-    countdownNumber--;
+    const countdownTimer = setInterval(() => {
 
-    if (countdownNumber < 0) {
-        clearInterval(countdownTimer);
-        countdown.innerText = "💨";
-    }
+        countdownNumber--;
 
-}, 1000);
+        if (countdownNumber > 0) {
+            countdown.innerText = countdownNumber;
+        } else {
+            clearInterval(countdownTimer);
+            countdown.innerText = "💨";
+        }
+
+    }, 1000);
+
+});
