@@ -1,188 +1,237 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shreya 🍒 | Happy Birthday</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Shreya ❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="loader">
-  <div class="loader-card">
-    <div class="loader-heart">🤍</div>
-    <h1>Preparing your surprise...</h1>
-    <p>Please wait a moment...</p>
-  </div>
-</div>
-
-<main id="app" class="hidden">
-
-  <div class="petals">
-    <span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span>
-    <span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span>
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <div class="loader-heart">❤️</div>
+    <h2>Preparing something special...</h2>
+    <p>Just for you, Shreya 🥹</p>
   </div>
 
-  <div class="sparkles">
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-  </div>
+  <!-- MAIN WEBSITE -->
+  <div id="app" class="hidden">
 
-  <section id="welcome" class="screen active">
-    <div class="card">
-      <div class="corner teddy-left">🧸</div>
-      <div class="corner teddy-right">🧸</div>
-      <div class="top-decoration">🧸 🌸 ✨</div>
-      <h1>Happy Birthday</h1>
-      <h2>Shreya 🤍</h2>
-      <p>Today is all about celebrating the most beautiful person in my life. I made something special just for you...</p>
-      <button id="startBtn">Open Your Surprise 🎁</button>
-    </div>
-  </section>
+    <div class="petals"></div>
+    <div class="sparkles"></div>
 
-  <section id="password" class="screen">
-    <div class="card">
-      <div class="top-decoration">🔐 🤍</div>
-      <h1>Private Surprise</h1>
-      <p>Only one person can enter this little world.</p>
-      <input type="password" id="passwordInput" placeholder="Enter Password">
-      <button id="unlockBtn">Unlock ❤️</button>
-      <p id="errorText"></p>
-    </div>
-  </section>
-
-  <section id="letterIntro" class="screen">
-    <div class="card">
-      <div class="corner teddy-left">🧸</div>
-      <div class="corner teddy-right">🧸</div>
-      <div class="top-decoration">💌 ✨</div>
-      <h1>A Letter</h1>
-      <p>Before we continue... there's something I want you to read.</p>
-      <button id="openLetterBtn">Open Letter 🌸</button>
-    </div>
-  </section>
-
-  <section id="letter" class="screen">
-    <div class="card">
-      <div class="corner teddy-left">🧸</div>
-      <div class="corner teddy-right">🧸</div>
-      <h1>To My Shreya</h1>
-      <div id="letterPaper"><div id="typewriter"></div></div>
-      <button id="memoryBtn">Continue 📸</button>
-    </div>
-  </section>
-
-  <section id="memory" class="screen">
-    <div class="card memory-card">
-      <div class="memory-count">Memory <span id="currentMemory">1</span> / 6 🤍</div>
-      <div class="photo-frame">
-        <img id="memoryImage" src="images/IMG_20260704_133328_799.jpg" alt="Our memory">
+    <!-- WELCOME PAGE -->
+    <section id="welcome" class="screen active">
+      <div class="card">
+        <div class="decoration">💗 🧸 💗</div>
+        <h1>Hey, My Shreya ❤️</h1>
+        <p>I made something special just for you.</p>
+        <p>Every little part of this is filled with my love.</p>
+        <button id="startBtn">Open My Surprise 💌</button>
       </div>
-      <h2 id="memoryTitle">Our First Meet ❤️</h2>
-      <p id="memoryText">Our first photo together.</p>
-      <button id="nextMemoryBtn">Next ➜</button>
-    </div>
-  </section>
+    </section>
 
-  <section id="birthday" class="screen">
-    <div class="card">
-      <div class="corner teddy-left">🧸</div>
-      <div class="corner teddy-right">🧸</div>
-      <div class="cake-emoji">🎂</div>
-      <h1>Happy Birthday</h1>
-      <h2>My Shreya 🍒</h2>
-      <p>May your smile always stay this beautiful. Thank you for making my life brighter every single day.</p>
-      <button id="giftBtn">Open Final Surprise 🎁</button>
-    </div>
-  </section>
+    <!-- PASSWORD PAGE -->
+    <section id="password" class="screen">
+      <div class="card">
+        <div class="decoration">🔐💕</div>
+        <h2>A Little Secret</h2>
+        <p>Enter our special password, jaanu ❤️</p>
 
-  <section id="gift" class="screen">
-    <div class="card">
-      <div class="corner teddy-left">🧸</div>
-      <div class="corner teddy-right">🧸</div>
-      <div class="gift-emoji">🎁🤍✨</div>
-      <h1>I Love You</h1>
-      <p>This wasn't just a website... It was made with memories, love, and every little feeling I wanted you to keep forever. Happy Birthday, Shreya. ❤️</p>
-      <button id="giftContinueBtn">See Our Memories 📸</button>
-    </div>
-  </section>
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Enter password"
+          autocomplete="off"
+        >
 
+        <button id="unlockBtn">Unlock My Heart ❤️</button>
+        <p id="errorText"></p>
+      </div>
+    </section>
+
+    <!-- LETTER INTRO PAGE -->
+    <section id="letterIntro" class="screen">
+      <div class="card">
+        <div class="decoration">💌🌷</div>
+        <h2>One Little Letter...</h2>
+        <p>There are things in my heart I don't always know how to say.</p>
+        <p>So today, I want you to read them slowly. ❤️</p>
+        <button id="openLetterBtn">Read My Letter 💗</button>
+      </div>
+    </section>
+
+    <!-- LETTER PAGE -->
+    <section id="letter" class="screen">
+      <div class="card">
+        <div class="decoration">💌</div>
+        <h2>To My Shreya ❤️</h2>
+
+        <div id="typewriter"></div>
+
+        <button id="memoryBtn">Our Memories 🥹</button>
+      </div>
+    </section>
+
+    <!-- MEMORY CAROUSEL PAGE -->
+    <section id="memory" class="screen">
+      <div class="card">
+        <div class="decoration">📸💕</div>
+        <h2>Little Pieces of Us</h2>
+
+        <div class="memory-frame">
+          <img
+            id="memoryImage"
+            src="images/IMG-20260607-WA0052_1783152248876.jpg"
+            alt="Our memory"
+          >
+        </div>
+
+        <h3 id="memoryTitle">Our Memory ❤️</h3>
+        <p id="memoryText">A little moment that means so much to me.</p>
+        <p id="currentMemory">1 / 6</p>
+
+        <button id="nextMemoryBtn">Next Memory 💗</button>
+      </div>
+    </section>
+
+    <!-- BIRTHDAY PAGE -->
+    <section id="birthday" class="screen">
+      <div class="card">
+        <div class="decoration">🎂🎀🎂</div>
+        <h1>Happy Birthday, Shreya! ❤️</h1>
+        <p>You deserve all the happiness this world can give you.</p>
+        <p>And I hope this little surprise makes you smile. 🥹</p>
+
+        <div class="birthday-cake">🎂</div>
+
+        <button id="giftBtn">Open Your Little Gift 🎁</button>
+      </div>
+    </section>
+
+    <!-- GIFT PAGE -->
+    <section id="gift" class="screen">
+      <div class="card">
+        <div class="decoration">🎁💗</div>
+        <h2>A Little Gift for You</h2>
+        <p>My favourite memories are the ones that have you in them.</p>
+        <p>Let's look at our pictures together. ❤️</p>
+
+        <button id="giftContinueBtn">See Our Photos 📸</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- PHOTO GALLERY PAGE -->
   <section id="gallery" class="screen">
-    <div class="card gallery-card">
-      <h1>Our Memories 📸</h1>
-      <p>Every picture tells a story... ❤️</p>
-      <div class="gallery">
-        <img src="images/IMG_20260704_133328_799.jpg" alt="Our first memory">
-        <img src="images/IMG_20260710_130013.png" alt="Our special memory">
-        <img src="images/IMG-20260607-WA0052_1783152248876.jpg" alt="Cute memory">
-        <img src="images/IMG_20260710_130214.png" alt="Sweet memory">
-        <img src="images/IMG-20260620-WA0006_1783152248627.jpg" alt="Favorite memory">
-        <img src="images/IMG_20260704_133301_105.jpg" alt="Special memory">
+    <div class="gallery-container">
+      <div class="decoration">🌷💕🧸</div>
+      <h2>Our Beautiful Memories ❤️</h2>
+      <p>Every picture holds a little piece of us.</p>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item">
+          <img
+            src="images/IMG-20260607-WA0052_1783152248876.jpg"
+            alt="Memory 1"
+          >
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="images/IMG-20260612-WA0000_1783152248772.jpg"
+            alt="Memory 2"
+          >
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="images/IMG-20260620-WA0006_1783152248627.jpg"
+            alt="Memory 3"
+          >
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="images/IMG_20260704_133301_105.jpg"
+            alt="Memory 4"
+          >
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="images/IMG_20260726_214637.png"
+            alt="Memory 5"
+          >
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="images/file_00000000b9a471faab0fc62c60d5db6c.png"
+            alt="Memory 6"
+          >
+        </div>
+
       </div>
+
       <button id="galleryNextBtn">Continue ❤️</button>
     </div>
   </section>
 
+  <!-- SURPRISE PAGE -->
   <section id="surprise" class="screen">
     <div class="card">
-      <h1>🎂 Happy Birthday Shreya ❤️</h1>
-      <p class="finalMessage">You came into my life when I never expected anyone.
+      <div class="decoration">💗🧸💗</div>
+      <h1>One Thing I Want You to Know</h1>
+      <p>Out of all the little moments in life, I'm grateful that our paths crossed.</p>
+      <p>You mean so much to me, Shreya. ❤️</p>
 
-Thank you for every smile, every memory and every little moment.
-
-No matter what happens in life, I'll always pray for your happiness.
-
-Happy Birthday once again, my Shreya. ❤️
-
-I love you forever. ♾️❤️
-
-- Vikas</p>
-      <button id="replayBtn">🔄 Replay Memories</button>
-      <button id="promiseBtn">💌 One Last Surprise</button>
+      <button id="promiseBtn">One Last Little Thing 💌</button>
+      <button id="replayBtn">Replay Our Surprise 🔁</button>
     </div>
   </section>
 
+  <!-- PROMISE PAGE -->
   <section id="promise" class="screen">
     <div class="card">
-      <h1>💌 One Last Promise</h1>
-      <p>No matter where life takes us... I'll always pray for your smile, your happiness, and your dreams.
+      <div class="decoration">🧸💖</div>
+      <h2>For You, Always ❤️</h2>
+      <p>I can't promise that every day will be perfect.</p>
+      <p>But I can keep learning, listening, and trying to love you better.</p>
+      <p>Thank you for being a beautiful part of my life, Shreya. 🥹</p>
 
-Happy Birthday Shreya ❤️
-
-Forever yours,
-Vikas ♾️❤️</p>
-      <button id="startNewSurpriseBtn">🎂 Start My New Surprise</button>
+      <button id="startNewSurpriseBtn">One More Surprise 🎂</button>
     </div>
   </section>
 
+  <!-- CAKE AND COUNTDOWN PAGE -->
   <section id="cakePage" class="screen">
-    <div class="card cake-card">
-      <h1 class="cakeTitle">🎂 Your Birthday Surprise 🎂</h1>
-      <p id="blowText">Blow the candles, Baby 🕯️❤️</p>
+    <div class="card">
+      <div class="decoration">🎀🎂🎀</div>
+      <h2 id="countdown">A Special Moment for You ❤️</h2>
 
-      <div class="cake-area">
-        <div id="countdown">3</div>
-        <div class="real-cake">
-          <div class="candle candle1">🕯️</div>
-          <div class="candle candle2">🕯️</div>
-          <div class="candle candle3">🕯️</div>
-          <div class="cake-top"></div>
-          <div class="cake-middle"></div>
-          <div class="cake-bottom"></div>
-        </div>
+      <div class="cake-emoji">🎂</div>
+
+      <div class="candles">
+        <span class="candle">🕯️</span>
+        <span class="candle">🕯️</span>
+        <span class="candle">🕯️</span>
       </div>
 
-      <div id="balloons">🎈 🎈 🎈 🎈 🎈</div>
-      <h2 id="birthdayText">HAPPY BIRTHDAY SHREYA 🎉❤️</h2>
-      <button id="cakeContinueBtn">Continue 💌</button>
+      <h1 id="birthdayText">Make a Wish, Shreya! 💗</h1>
+      <p>May your life always be filled with love, peace, and happiness.</p>
+
+      <button id="cakeContinueBtn">Continue ❤️</button>
     </div>
   </section>
 
-</main>
+  <!-- IMPORTANT: LOAD JAVASCRIPT -->
+  <script src="script.js"></script>
 
-<script src="script.js"></script>
 </body>
 </html>
