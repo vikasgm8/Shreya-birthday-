@@ -1,229 +1,261 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const $ = (id) => document.getElementById(id);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const screens = document.querySelectorAll(".screen");
-
+  // Show one page at a time
   function showScreen(id) {
-    screens.forEach(screen => screen.classList.remove("active"));
+    document.querySelectorAll(".screen").forEach((screen) => {
+      screen.classList.remove("active");
+    });
 
-    const page = document.getElementById(id);
-    if (page) page.classList.add("active");
+    const page = $(id);
+    if (page) {
+      page.classList.add("active");
+    }
   }
 
-  // START WEBSITE
-  const loader = document.getElementById("loader");
-  const app = document.getElementById("app");
+  // Start website
+  const loader = $("loader");
+  const app = $("app");
 
   if (loader) loader.classList.add("hidden");
   if (app) app.classList.remove("hidden");
 
   showScreen("welcome");
 
-  // WELCOME AND PASSWORD
-  document.getElementById("startBtn")?.addEventListener("click", () => {
-    showScreen("password");
-  });
+  // Welcome page
+  if ($("startBtn")) {
+    $("startBtn").addEventListener("click", () => {
+      showScreen("password");
+    });
+  }
 
+  // Password page
   function unlock() {
-    const input = document.getElementById("passwordInput");
-    const error = document.getElementById("errorText");
+    const passwordInput = $("passwordInput");
+    const errorText = $("errorText");
 
-    if (!input || !error) return;
+    if (!passwordInput) return;
 
-    if (input.value.trim().toLowerCase() === "cherry") {
-      error.textContent = "";
+    if (passwordInput.value.trim().toLowerCase() === "cherry") {
+      if (errorText) errorText.textContent = "";
+      passwordInput.value = "";
       showScreen("letterIntro");
     } else {
-      error.textContent = "Wrong password 🤍";
+      if (errorText) {
+        errorText.textContent = "Wrong password, try again ❤️";
+      }
+      passwordInput.value = "";
+      passwordInput.focus();
     }
   }
 
-  document.getElementById("unlockBtn")?.addEventListener("click", unlock);
+  if ($("unlockBtn")) {
+    $("unlockBtn").addEventListener("click", unlock);
+  }
 
-  document.getElementById("passwordInput")?.addEventListener("keydown", e => {
-    if (e.key === "Enter") unlock();
-  });
+  if ($("passwordInput")) {
+    $("passwordInput").addEventListener("keydown", (event) => {
+      if (event.key === "Enter") unlock();
+    });
+  }
 
-  // LETTER
-  const letter = `Hey Shreya... 💌❤️
+  // Letter page
+  const letter = `My Shreya ❤️
 
-Happy Birthday, my girl. 🎂🤍
+Happy Birthday, my favourite person.
 
-You don't know how special you are to me, Baby. It's your birthday, but I think I'm happier than you are. ❤️ Today, my girl was born—the girl who made my entire life beautiful. I love you so much. Once again, Happy Birthday, Baby. 🫂❤️
+I wish I could be there beside you today, see your smile, and make this day special for you. Even though distance keeps us apart, you are always close to my heart.
 
-Do you remember that day when you corrected my Physics paper and gave me extra marks? And to thank you, I gave you chewing gum. I still remember that day, and it always makes me smile. Unexpectedly, it became one of the best days of my life.
+Thank you for being a part of my life, for your love, your care, and all the little moments that mean so much to me.
 
-I know I had a past, about Meha and everything. I'm really sorry for that. But now, I'm all yours, and I promise I'll always stay loyal to you, Baby. ❤️ I want to marry you, Shreya. I'm madly in love with you, and I dream about you every single day. Thank you for everything. 🤍
+I am genuinely proud of you, Shreya. I hope this new year of your life brings you happiness, good health, peace, and every beautiful thing you deserve.
 
-My everything is you. If it's you, then it's a yes for everything. ❤️ I hope our relationship ends with marriage, two children, and the beautiful life we've always dreamed of. Daily hugs, kisses, and growing old together. 🥹❤️
+No matter how busy life becomes, I hope we keep choosing each other, understanding each other, and making more memories together.
 
-At the end of this letter, I just want to thank you once again and tell you that I love you so much. One day, I hope we'll become husband and wife, and stay together until we become grandfather and grandmother. ❤️♾️
+You are so special to me, and I hope this little surprise makes you smile today.
 
-From your man, ❤️
+Happy Birthday once again, Shreya. ❤️
+
+Forever with love,
 Vikas ❤️`;
 
-  let typingTimer;
+  if ($("openLetterBtn")) {
+    $("openLetterBtn").addEventListener("click", () => {
+      showScreen("letter");
 
-  document.getElementById("openLetterBtn")?.addEventListener("click", () => {
-    showScreen("letter");
-    clearInterval(typingTimer);
+      const output = $("typewriter");
+      if (!output) return;
 
-    const box = document.getElementById("typewriter");
-    if (!box) return;
+      output.textContent = "";
+      let index = 0;
 
-    box.textContent = "";
-    let i = 0;
+      if (window.letterTimer) {
+        clearInterval(window.letterTimer);
+      }
 
-    typingTimer = setInterval(() => {
-      box.textContent += letter.charAt(i);
-      i++;
+      window.letterTimer = setInterval(() => {
+        output.textContent += letter.charAt(index);
+        index++;
 
-      if (i >= letter.length) clearInterval(typingTimer);
-    }, 35);
-  });
+        if (index >= letter.length) {
+          clearInterval(window.letterTimer);
+          window.letterTimer = null;
+        }
+      }, 28);
+    });
+  }
 
-  // SIX PHOTOS WITH INDIVIDUAL MESSAGES
+  // Six memories
   const memories = [
     {
-      image: "images/IMG-20260607-WA0052_1783152248876.jpg",
+      image: "IMG-20260607-WA0052_1783152248876.jpg",
       title: "Our First Meet ❤️",
-      text: "Our first photo together."
+      text: "Our first photo together. A memory I will always keep close to my heart."
     },
     {
-      image: "images/IMG-20260612-WA0000_1783152248772.jpg",
-      title: "The Photo Which Changed My Life 🩷",
-      text: "Our special memory together."
+      image: "IMG-20260612-WA0000_1783152248772.jpg",
+      title: "A Special Memory 🩷",
+      text: "Every memory with you has a place in my heart."
     },
     {
-      image: "images/IMG-20260620-WA0006_1783152248627.jpg",
-      title: "Cutest Photo Of All Time 🤍",
-      text: "I'm in love with this photo."
+      image: "IMG-20260620-WA0006_1783152248627.jpg",
+      title: "Cutest Memory 🤍",
+      text: "One of those photos that makes me smile every time I see it."
     },
     {
-      image: "images/IMG_20260704_133301_105.jpg",
+      image: "IMG_20260704_133301_105.jpg",
       title: "Our Sweet Memory 💗",
-      text: "This will always be a special memory."
+      text: "I hope we keep making beautiful memories together."
     },
     {
-      image: "images/IMG_20260726_214637.png",
+      image: "IMG_20260726_214637.png",
       title: "My Favourite Memory 💛",
-      text: "A memory I'll always keep close to my heart."
+      text: "A little moment that means more to me than words can explain."
     },
     {
-      image: "images/file_00000000b9a471faab0fc62c60d5db6c.png",
+      image: "file_00000000b9a471faab0fc62c60d5db6c.png",
       title: "Nearest To My Heart 💟",
-      text: "I drew my whole world in my diary."
+      text: "You will always be someone very special in my life."
     }
   ];
 
   let memoryIndex = 0;
 
   function loadMemory() {
-    const item = memories[memoryIndex];
-    const img = document.getElementById("memoryImage");
-    const title = document.getElementById("memoryTitle");
-    const message = document.getElementById("memoryText");
-    const count = document.getElementById("currentMemory");
+    const memory = memories[memoryIndex];
+    if (!memory) return;
 
-    if (img) {
-      img.src = item.image;
-      img.alt = item.title;
+    const image = $("memoryImage");
 
-      img.onerror = () => {
-        img.onerror = null;
-        img.src =
+    if (image) {
+      image.onerror = function () {
+        image.onerror = null;
+        image.src =
           "https://vikasgm8.github.io/Shreya-birthday-/images/" +
-          encodeURIComponent(item.image.split("/").pop());
+          encodeURIComponent(memory.image);
       };
+
+      image.src = "images/" + encodeURIComponent(memory.image);
+      image.alt = memory.title;
     }
 
-    if (title) title.textContent = item.title;
-    if (message) message.textContent = item.text;
-    if (count) count.textContent = `${memoryIndex + 1} / ${memories.length}`;
+    if ($("memoryTitle")) $("memoryTitle").textContent = memory.title;
+    if ($("memoryText")) $("memoryText").textContent = memory.text;
+
+    if ($("currentMemory")) {
+      $("currentMemory").textContent =
+        (memoryIndex + 1) + " / " + memories.length;
+    }
   }
 
-  document.getElementById("memoryBtn")?.addEventListener("click", () => {
-    memoryIndex = 0;
-    loadMemory();
-    showScreen("memory");
-  });
-
-  document.getElementById("nextMemoryBtn")?.addEventListener("click", () => {
-    memoryIndex++;
-
-    if (memoryIndex >= memories.length) {
-      showScreen("birthday");
-    } else {
+  if ($("memoryBtn")) {
+    $("memoryBtn").addEventListener("click", () => {
+      memoryIndex = 0;
       loadMemory();
-    }
-  });
+      showScreen("memory");
+    });
+  }
 
-  // BIRTHDAY AND GIFT
-  document.getElementById("giftBtn")?.addEventListener("click", () => {
-    showScreen("gift");
-  });
+  if ($("nextMemoryBtn")) {
+    $("nextMemoryBtn").addEventListener("click", () => {
+      memoryIndex++;
 
-  document.getElementById("giftContinueBtn")?.addEventListener("click", () => {
-    showScreen("gallery");
-  });
-
-  document.getElementById("galleryNextBtn")?.addEventListener("click", () => {
-    showScreen("surprise");
-  });
-
-  // REPLAY AND PROMISE
-  document.getElementById("replayBtn")?.addEventListener("click", () => {
-    memoryIndex = 0;
-    loadMemory();
-    showScreen("memory");
-  });
-
-  document.getElementById("promiseBtn")?.addEventListener("click", () => {
-    showScreen("promise");
-  });
-
-  // CAKE COUNTDOWN
-  let cakeTimer;
-
-  document.getElementById("startNewSurpriseBtn")?.addEventListener("click", () => {
-    clearInterval(cakeTimer);
-    showScreen("cakePage");
-
-    let number = 3;
-
-    const countdown = document.getElementById("countdown");
-    const birthdayText = document.getElementById("birthdayText");
-    const continueBtn = document.getElementById("cakeContinueBtn");
-    const candles = document.querySelectorAll("#cakePage .candle");
-
-    if (countdown) countdown.textContent = number;
-    if (birthdayText) birthdayText.style.display = "none";
-    if (continueBtn) continueBtn.style.display = "none";
-
-    candles.forEach(candle => candle.style.display = "block");
-
-    cakeTimer = setInterval(() => {
-      number--;
-
-      if (number > 0) {
-        if (countdown) countdown.textContent = number;
+      if (memoryIndex < memories.length) {
+        loadMemory();
       } else {
-        clearInterval(cakeTimer);
-
-        if (countdown) countdown.textContent = "💨";
-        candles.forEach(candle => candle.style.display = "none");
-
-        if (birthdayText) birthdayText.style.display = "block";
-        if (continueBtn) continueBtn.style.display = "block";
+        showScreen("birthday");
       }
-    }, 1000);
+    });
+  }
+
+  // Birthday page
+  if ($("giftBtn")) {
+    $("giftBtn").addEventListener("click", () => {
+      showScreen("gift");
+    });
+  }
+
+  if ($("giftContinueBtn")) {
+    $("giftContinueBtn").addEventListener("click", () => {
+      showScreen("gallery");
+    });
+  }
+
+  // Gallery
+  if ($("galleryNextBtn")) {
+    $("galleryNextBtn").addEventListener("click", () => {
+      showScreen("surprise");
+    });
+  }
+
+  // Surprise and promises
+  if ($("promiseBtn")) {
+    $("promiseBtn").addEventListener("click", () => {
+      showScreen("promise");
+    });
+  }
+
+  if ($("replayBtn")) {
+    $("replayBtn").addEventListener("click", () => {
+      memoryIndex = 0;
+      loadMemory();
+      showScreen("memory");
+    });
+  }
+
+  if ($("startNewSurpriseBtn")) {
+    $("startNewSurpriseBtn").addEventListener("click", () => {
+      showScreen("cakePage");
+
+      const countdown = $("countdown");
+      if (countdown) countdown.textContent = "Make a wish, Shreya! ❤️";
+    });
+  }
+
+  // Birthday cake candles
+  document.querySelectorAll(".candle").forEach((candle) => {
+    candle.addEventListener("click", () => {
+      candle.classList.toggle("blown");
+      candle.textContent = candle.classList.contains("blown") ? "" : "🕯️";
+
+      const candles = document.querySelectorAll(".candle");
+      const allBlown = Array.from(candles).every((item) =>
+        item.classList.contains("blown")
+      );
+
+      if (allBlown && $("birthdayText")) {
+        $("birthdayText").textContent =
+          "Happy Birthday, Shreya! ❤️ May all your wishes come true!";
+      }
+    });
   });
 
-  document.getElementById("cakeContinueBtn")?.addEventListener("click", () => {
-    showScreen("gallery");
-  });
+  if ($("cakeContinueBtn")) {
+    $("cakeContinueBtn").addEventListener("click", () => {
+      showScreen("gallery");
+    });
+  }
 
-  // LOAD FIRST MEMORY
+  // Load the first memory for later
   loadMemory();
 });
-
-  
