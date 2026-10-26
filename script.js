@@ -191,3 +191,72 @@ document.getElementById("cakeContinueBtn")?.addEventListener("click", () => {
 });
 
 loadMemory();
+
+
+/* MOBILE MEMORY PAGE FIX */
+#memory {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#memory .card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 360px;
+  max-height: calc(100vh - 32px);
+  margin: auto;
+  padding: 18px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+#memory h2,
+#memory h3,
+#memory p,
+#typewriter {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  white-space: normal;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#memory h2 {
+  font-size: 23px;
+}
+
+#memory h3 {
+  font-size: 19px;
+}
+
+#memory .memory-frame {
+  width: 100%;
+  height: 220px;
+  margin: 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#memory .memory-frame img,
+#memory #memoryImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+#memory button {
+  max-width: 100%;
+  white-space: normal;
+  font-size: 15px;
+}
+  
