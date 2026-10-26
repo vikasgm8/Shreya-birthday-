@@ -413,3 +413,61 @@ input {
   #letterPaper { height: 34vh; }
   .photo-frame { height: 35vh; }
     }
+
+/* FIX OVERSIZED TEXT AND MOBILE LAYOUT */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+#letter .card,
+#memory .card,
+#gallery .gallery-container {
+  box-sizing: border-box !important;
+  width: calc(100% - 24px) !important;
+  max-width: 360px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 16px !important;
+  overflow-wrap: anywhere !important;
+}
+
+#letter h2,
+#letter p,
+#letter #typewriter,
+#memory h2,
+#memory h3,
+#memory p {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
+#letter h2,
+#memory h2 {
+  font-size: 22px !important;
+}
+
+#memory #memoryImage {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 210px !important;
+  object-fit: contain !important;
+}
+
+#gallery .gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+#gallery img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 180px !important;
+  object-fit: contain !important;
+}
+
