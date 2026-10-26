@@ -1,51 +1,50 @@
 
-const screens = document.querySelectorAll(".screen");
+document.addEventListener("DOMContentLoaded", () => {
+  const screens = document.querySelectorAll(".screen");
 
-function showScreen(id) {
-  screens.forEach(screen => screen.classList.remove("active"));
-  const page = document.getElementById(id);
-  if (page) page.classList.add("active");
-}
+  function showScreen(id) {
+    screens.forEach(screen => screen.classList.remove("active"));
 
-function startWebsite() {
+    const page = document.getElementById(id);
+    if (page) page.classList.add("active");
+  }
+
+  // START WEBSITE
   const loader = document.getElementById("loader");
   const app = document.getElementById("app");
+
   if (loader) loader.classList.add("hidden");
   if (app) app.classList.remove("hidden");
+
   showScreen("welcome");
-}
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", startWebsite);
-} else {
-  startWebsite();
-}
+  // WELCOME AND PASSWORD
+  document.getElementById("startBtn")?.addEventListener("click", () => {
+    showScreen("password");
+  });
 
-// PASSWORD
-document.getElementById("startBtn")?.addEventListener("click", () => {
-  showScreen("password");
-});
+  function unlock() {
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("errorText");
 
-function unlock() {
-  const password = document.getElementById("passwordInput").value.trim().toLowerCase();
-  const error = document.getElementById("errorText");
+    if (!input || !error) return;
 
-  if (password === "cherry") {
-    error.textContent = "";
-    showScreen("letterIntro");
-  } else {
-    error.textContent = "Wrong password 🤍";
+    if (input.value.trim().toLowerCase() === "cherry") {
+      error.textContent = "";
+      showScreen("letterIntro");
+    } else {
+      error.textContent = "Wrong password 🤍";
+    }
   }
-}
 
-document.getElementById("unlockBtn")?.addEventListener("click", unlock);
+  document.getElementById("unlockBtn")?.addEventListener("click", unlock);
 
-document.getElementById("passwordInput")?.addEventListener("keydown", e => {
-  if (e.key === "Enter") unlock();
-});
+  document.getElementById("passwordInput")?.addEventListener("keydown", e => {
+    if (e.key === "Enter") unlock();
+  });
 
-// LETTER
-const letter = `Hey Shreya... 💌❤️
+  // LETTER
+  const letter = `Hey Shreya... 💌❤️
 
 Happy Birthday, my girl. 🎂🤍
 
@@ -62,201 +61,169 @@ At the end of this letter, I just want to thank you once again and tell you that
 From your man, ❤️
 Vikas ❤️`;
 
-let typingTimer;
+  let typingTimer;
 
-document.getElementById("openLetterBtn")?.addEventListener("click", () => {
-  showScreen("letter");
-  clearInterval(typingTimer);
+  document.getElementById("openLetterBtn")?.addEventListener("click", () => {
+    showScreen("letter");
+    clearInterval(typingTimer);
 
-  const box = document.getElementById("typewriter");
-  box.textContent = "";
-  let i = 0;
+    const box = document.getElementById("typewriter");
+    if (!box) return;
 
-  typingTimer = setInterval(() => {
-    box.textContent += letter.charAt(i++);
-    if (i >= letter.length) clearInterval(typingTimer);
-  }, 35);
-});
+    box.textContent = "";
+    let i = 0;
 
-// SIX PHOTOS
-const memories = [
-  {
-    image: "images/IMG-20260607-WA0052_1783152248876.jpg",
-    title: "Our First Meet ❤️",
-    text: "Our first photo together."
-  },
-  {
-    image: "images/IMG-20260612-WA0000_1783152248772.jpg",
-    title: "The Photo Which Changed My Life 🩷",
-    text: "Our special memory together."
-  },
-  {
-    image: "images/IMG-20260620-WA0006_1783152248627.jpg",
-    title: "Cutest Photo Of All Time 🤍",
-    text: "I'm in love with this photo."
-  },
-  {
-    image: "images/IMG_20260704_133301_105.jpg",
-    title: "Our Sweet Memory 💗",
-    text: "This will always be a special memory."
-  },
-  {
-    image: "images/IMG_20260726_214637.png",
-    title: "My Favourite Memory 💛",
-    text: "A memory I'll always keep close to my heart."
-  },
-  {
-    image: "images/file_00000000b9a471faab0fc62c60d5db6c.png",
-    title: "Nearest To My Heart 💟",
-    text: "I drew my whole world in my diary."
-  }
-];
+    typingTimer = setInterval(() => {
+      box.textContent += letter.charAt(i);
+      i++;
 
-let memoryIndex = 0;
+      if (i >= letter.length) clearInterval(typingTimer);
+    }, 35);
+  });
 
-function loadMemory() {
-  const item = memories[memoryIndex];
-  document.getElementById("memoryImage").src = item.image;
-  document.getElementById("memoryTitle").textContent = item.title;
-  document.getElementById("memoryText").textContent = item.text;
-  document.getElementById("currentMemory").textContent = memoryIndex + 1;
-}
-
-document.getElementById("memoryBtn")?.addEventListener("click", () => {
-  memoryIndex = 0;
-  loadMemory();
-  showScreen("memory");
-});
-
-document.getElementById("nextMemoryBtn")?.addEventListener("click", () => {
-  memoryIndex++;
-  if (memoryIndex >= memories.length) {
-    showScreen("birthday");
-  } else {
-    loadMemory();
-  }
-});
-
-// BIRTHDAY AND GIFT
-document.getElementById("giftBtn")?.addEventListener("click", () => showScreen("gift"));
-document.getElementById("giftContinueBtn")?.addEventListener("click", () => showScreen("gallery"));
-document.getElementById("galleryNextBtn")?.addEventListener("click", () => showScreen("surprise"));
-
-document.getElementById("replayBtn")?.addEventListener("click", () => {
-  memoryIndex = 0;
-  loadMemory();
-  showScreen("memory");
-});
-
-document.getElementById("promiseBtn")?.addEventListener("click", () => showScreen("promise"));
-
-// CAKE COUNTDOWN
-let cakeTimer;
-
-document.getElementById("startNewSurpriseBtn")?.addEventListener("click", () => {
-  clearInterval(cakeTimer);
-  showScreen("cakePage");
-
-  let number = 3;
-  const countdown = document.getElementById("countdown");
-  const birthdayText = document.getElementById("birthdayText");
-  const continueBtn = document.getElementById("cakeContinueBtn");
-  const candles = document.querySelectorAll("#cakePage .candle");
-
-  countdown.textContent = number;
-  birthdayText.style.display = "none";
-  continueBtn.style.display = "none";
-
-  candles.forEach(candle => candle.style.display = "block");
-
-  cakeTimer = setInterval(() => {
-    number--;
-
-    if (number > 0) {
-      countdown.textContent = number;
-    } else {
-      clearInterval(cakeTimer);
-      countdown.textContent = "💨";
-
-      candles.forEach(candle => candle.style.display = "none");
-
-      birthdayText.style.display = "block";
-      continueBtn.style.display = "block";
+  // SIX PHOTOS WITH INDIVIDUAL MESSAGES
+  const memories = [
+    {
+      image: "images/IMG-20260607-WA0052_1783152248876.jpg",
+      title: "Our First Meet ❤️",
+      text: "Our first photo together."
+    },
+    {
+      image: "images/IMG-20260612-WA0000_1783152248772.jpg",
+      title: "The Photo Which Changed My Life 🩷",
+      text: "Our special memory together."
+    },
+    {
+      image: "images/IMG-20260620-WA0006_1783152248627.jpg",
+      title: "Cutest Photo Of All Time 🤍",
+      text: "I'm in love with this photo."
+    },
+    {
+      image: "images/IMG_20260704_133301_105.jpg",
+      title: "Our Sweet Memory 💗",
+      text: "This will always be a special memory."
+    },
+    {
+      image: "images/IMG_20260726_214637.png",
+      title: "My Favourite Memory 💛",
+      text: "A memory I'll always keep close to my heart."
+    },
+    {
+      image: "images/file_00000000b9a471faab0fc62c60d5db6c.png",
+      title: "Nearest To My Heart 💟",
+      text: "I drew my whole world in my diary."
     }
-  }, 1000);
+  ];
+
+  let memoryIndex = 0;
+
+  function loadMemory() {
+    const item = memories[memoryIndex];
+    const img = document.getElementById("memoryImage");
+    const title = document.getElementById("memoryTitle");
+    const message = document.getElementById("memoryText");
+    const count = document.getElementById("currentMemory");
+
+    if (img) {
+      img.src = item.image;
+      img.alt = item.title;
+
+      img.onerror = () => {
+        img.onerror = null;
+        img.src =
+          "https://vikasgm8.github.io/Shreya-birthday-/images/" +
+          encodeURIComponent(item.image.split("/").pop());
+      };
+    }
+
+    if (title) title.textContent = item.title;
+    if (message) message.textContent = item.text;
+    if (count) count.textContent = `${memoryIndex + 1} / ${memories.length}`;
+  }
+
+  document.getElementById("memoryBtn")?.addEventListener("click", () => {
+    memoryIndex = 0;
+    loadMemory();
+    showScreen("memory");
+  });
+
+  document.getElementById("nextMemoryBtn")?.addEventListener("click", () => {
+    memoryIndex++;
+
+    if (memoryIndex >= memories.length) {
+      showScreen("birthday");
+    } else {
+      loadMemory();
+    }
+  });
+
+  // BIRTHDAY AND GIFT
+  document.getElementById("giftBtn")?.addEventListener("click", () => {
+    showScreen("gift");
+  });
+
+  document.getElementById("giftContinueBtn")?.addEventListener("click", () => {
+    showScreen("gallery");
+  });
+
+  document.getElementById("galleryNextBtn")?.addEventListener("click", () => {
+    showScreen("surprise");
+  });
+
+  // REPLAY AND PROMISE
+  document.getElementById("replayBtn")?.addEventListener("click", () => {
+    memoryIndex = 0;
+    loadMemory();
+    showScreen("memory");
+  });
+
+  document.getElementById("promiseBtn")?.addEventListener("click", () => {
+    showScreen("promise");
+  });
+
+  // CAKE COUNTDOWN
+  let cakeTimer;
+
+  document.getElementById("startNewSurpriseBtn")?.addEventListener("click", () => {
+    clearInterval(cakeTimer);
+    showScreen("cakePage");
+
+    let number = 3;
+
+    const countdown = document.getElementById("countdown");
+    const birthdayText = document.getElementById("birthdayText");
+    const continueBtn = document.getElementById("cakeContinueBtn");
+    const candles = document.querySelectorAll("#cakePage .candle");
+
+    if (countdown) countdown.textContent = number;
+    if (birthdayText) birthdayText.style.display = "none";
+    if (continueBtn) continueBtn.style.display = "none";
+
+    candles.forEach(candle => candle.style.display = "block");
+
+    cakeTimer = setInterval(() => {
+      number--;
+
+      if (number > 0) {
+        if (countdown) countdown.textContent = number;
+      } else {
+        clearInterval(cakeTimer);
+
+        if (countdown) countdown.textContent = "💨";
+        candles.forEach(candle => candle.style.display = "none");
+
+        if (birthdayText) birthdayText.style.display = "block";
+        if (continueBtn) continueBtn.style.display = "block";
+      }
+    }, 1000);
+  });
+
+  document.getElementById("cakeContinueBtn")?.addEventListener("click", () => {
+    showScreen("gallery");
+  });
+
+  // LOAD FIRST MEMORY
+  loadMemory();
 });
 
-document.getElementById("cakeContinueBtn")?.addEventListener("click", () => {
-  showScreen("gallery");
-});
-
-loadMemory();
-
-
-/* MOBILE MEMORY PAGE FIX */
-#memory {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 16px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-#memory .card {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 360px;
-  max-height: calc(100vh - 32px);
-  margin: auto;
-  padding: 18px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  text-align: center;
-}
-
-#memory h2,
-#memory h3,
-#memory p,
-#typewriter {
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: normal;
-  white-space: normal;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-#memory h2 {
-  font-size: 23px;
-}
-
-#memory h3 {
-  font-size: 19px;
-}
-
-#memory .memory-frame {
-  width: 100%;
-  height: 220px;
-  margin: 12px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-#memory .memory-frame img,
-#memory #memoryImage {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-#memory button {
-  max-width: 100%;
-  white-space: normal;
-  font-size: 15px;
-}
   
